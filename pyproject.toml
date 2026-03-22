@@ -1,0 +1,97 @@
+[build-system]
+requires = ["setuptools>=68,<76", "wheel>=0.41,<0.46"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "factor_graph_opt"
+version = "0.1.0"
+description = "Factor-graph-based geomagnetic localization and optimization toolkit."
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "numpy>=1.24,<2.0",
+    "scipy>=1.10,<1.14",
+    "matplotlib>=3.7,<3.10",
+    "pykrige>=1.7,<2.0",
+]
+
+[project.optional-dependencies]
+data = [
+    "pandas>=1.5,<2.3",
+    "polars>=0.20,<1.0",
+    "duckdb>=0.9,<1.2",
+    "sqlalchemy>=1.4,<2.1",
+    "alembic>=1.10,<1.15",
+    "psycopg2-binary>=2.9,<3.0",
+    "pymongo>=4.3,<4.10",
+    "redis>=4.5,<6.0",
+]
+ml = [
+    "scikit-learn>=1.2,<1.6",
+    "xgboost>=1.7,<2.2",
+    "lightgbm>=4.0,<4.7",
+    "torch",
+    "torchvision",
+    "tensorflow>=2.15,<2.19",
+    "transformers>=4.36,<4.48",
+    "datasets>=2.16,<3.3",
+    "optuna>=3.5,<4.2",
+]
+visualization = [
+    "seaborn>=0.12,<0.14",
+    "plotly>=5.18,<6.0",
+    "bokeh>=3.3,<3.7",
+    "altair>=5.1,<5.6",
+]
+web = [
+    "requests>=2.31,<3.0",
+    "httpx>=0.25,<0.28",
+    "aiohttp>=3.9,<3.11",
+    "beautifulsoup4>=4.12,<5.0",
+    "lxml>=4.9,<5.4",
+    "scrapy>=2.10,<2.13",
+]
+api = [
+    "fastapi>=0.103,<0.116",
+    "flask>=2.3,<3.1",
+    "django>=4.2,<5.2",
+    "uvicorn>=0.23,<0.32",
+    "gunicorn>=21.2,<23.0",
+    "pydantic>=2.5,<2.11",
+]
+dev = [
+    "pytest>=7.4,<8.4",
+    "pytest-cov>=4.1,<6.1",
+    "black>=23.9,<25.1",
+    "ruff>=0.1.8,<0.8",
+    "mypy>=1.7,<1.12",
+    "ipython>=8.18,<9.0",
+    "jupyterlab>=4.0,<4.4",
+    "notebook>=7.0,<7.3",
+    "pre-commit>=3.5,<4.1",
+    "tox>=4.11,<4.24",
+]
+utils = [
+    "python-dotenv>=1.0,<1.1",
+    "typer>=0.9,<0.13",
+    "click>=8.1,<8.2",
+    "loguru>=0.7,<0.8",
+    "tqdm>=4.66,<5.0",
+    "pyyaml>=6.0,<6.1",
+    "orjson>=3.9,<3.11",
+    "sympy>=1.12,<1.14",
+    "livelossplot",
+    "tqdm"
+]
+
+[tool.setuptools.packages.find]
+include = ["geomagloc_factor_graph*"]
+
+[tool.map_builder]
+preview_resolution = 1.0
+max_kriging_points = 2500
+seed = 42
+variogram_model = "spherical"
+output_model_npz = "data/processed/uji_mag_model_kriging.npz"
+output_preview_npz = "data/processed/uji_mag_grid_preview_kriging.npz"
+output_json = "data/processed/uji_mag_grid_kriging_meta.json"
+output_png = "data/processed/uji_mag_grid_kriging.png"

@@ -1,0 +1,26 @@
+{
+  "source": "uji",
+  "continuous_map": true,
+  "dataset_root": "data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag",
+  "points_total": 35769,
+  "points_used_for_kriging": 2500,
+  "variogram_model": "spherical",
+  "preview_resolution": 1.0,
+  "bounds_xy_m": [
+    0.0,
+    16.71162133737144,
+    0.0,
+    14.665434795778815
+  ],
+  "preview_grid_shape": [
+    16,
+    18
+  ],
+  "origin_latlon": [
+    39.99383601528201,
+    -0.07394679273973664
+  ],
+  "output_model_npz": "data/processed/uji_mag_model_kriging.npz",
+  "output_preview_npz": "data/processed/uji_mag_grid_preview_kriging.npz",
+  "output_png": "data/processed/uji_mag_grid_kriging.png"
+}
