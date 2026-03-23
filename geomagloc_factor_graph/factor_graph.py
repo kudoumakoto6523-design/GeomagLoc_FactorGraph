@@ -211,6 +211,10 @@ def default_Q1_window(start_point, steplen_list, heading_angle_list, mag_map, ma
     return total_loss
 
 
+# TO BE EVALUATED
+
+# TODO
+
 def default_Q2(param_w, target=0.1):
     """
     param_w can be a vector
@@ -258,7 +262,7 @@ def constrain(param_w, param_v):
 
 class Factor_Graph:
 
-    def __init__(self, constrain, param_this_iteration: param, target_func=target_func, optimizer="Adam"):
+    def __init__(self, param_this_iteration: param, constrain = constrain,target_func=target_func, optimizer="Adam"):
         """
         constrain: this must be a function
         target_func: this must be a function generator

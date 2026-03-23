@@ -8,6 +8,10 @@ from pathlib import Path
 from urllib.request import urlretrieve
 
 import numpy as np
+try:
+    from .mag_map import ContinuousMagMap
+except ImportError:
+    from mag_map import ContinuousMagMap
 
 UJI_ZIP_URL = "https://archive.ics.uci.edu/static/public/343/ujiindoorloc%2Bmag.zip"
 MARKER_RE = re.compile(r"<\d+>")
@@ -485,17 +489,61 @@ def _api_get_map(
         )
         map_info["zip_path"] = str(zip_path)
         map_info["extract_dir"] = str(extract_dir)
+        map_info["map_mapping_method"] = "bicubic"
+        map_info["map_mapping_class"] = "ContinuousMagMap"
         return map_info
 
     if source == "own":
-        return _build_own_map_interface(
+        map_info = _build_own_map_interface(
             own_grid_array=own_grid_array,
             own_grid_map_path=own_grid_map_path,
             own_grid_format=own_grid_format,
             own_grid_meta=own_grid_meta,
         )
+        map_info["map_mapping_method"] = "bicubic"
+        map_info["map_mapping_class"] = "ContinuousMagMap"
+        return map_info
 
     raise ValueError(f"Unsupported map source: {source}")
+
+
+def _api_get_map_mapping(
+    geomag_map=None,
+    source="uji",
+    data_root="data/raw",
+    config_path="pyproject.toml",
+    force_download=False,
+    force_extract=False,
+    own_grid_array=None,
+    own_grid_map_path=None,
+    own_grid_format="array",
+    own_grid_meta=None,
+    interpolation="bicubic",
+    clip_to_bounds=True,
+):
+    """
+    Return a continuous map interface that supports:
+    - world_to_grid / grid_to_world coordinate transforms
+    - interpolated magnetic query
+    - spatial gradient query
+    """
+    if geomag_map is None:
+        geomag_map = _api_get_map(
+            source=source,
+            data_root=data_root,
+            config_path=config_path,
+            force_download=force_download,
+            force_extract=force_extract,
+            own_grid_array=own_grid_array,
+            own_grid_map_path=own_grid_map_path,
+            own_grid_format=own_grid_format,
+            own_grid_meta=own_grid_meta,
+        )
+    return ContinuousMagMap.from_map_info(
+        geomag_map,
+        method=interpolation,
+        clip_to_bounds=clip_to_bounds,
+    )
 
 
 # --- Public API placeholders used by Experiment.run() ---
@@ -1758,150 +1806,6 @@ def _api_visualize(
     # TODO: Add track/route visualization for localization results.
     return
 
-def _api_factor_graph(stplen, heading_angle, geomag_list_using, init_point,
-                      delta_scale=3.0, lr=0.001, iterations=200,
-                      beta1=0.9, beta2=0.999, eps=1e-8):
-    import numpy as np
-    import math
-    import os
-
-    # Convert inputs to numpy arrays
-    stplen = np.asarray(stplen, dtype=float).reshape(-1)
-    heading_angle = np.asarray(heading_angle, dtype=float).reshape(-1)
-    measured_mags = np.asarray(geomag_list_using, dtype=float).reshape(-1)
-    n = stplen.size
-
-    # Load the continuous magnetic map (preview grid).  Adjust the path as needed.
-    map_path = 'data/processed/uji_mag_grid_preview_kriging.npz'
-    if not os.path.exists(map_path):
-        # Fall back to a zero map if the file is not found
-        grid_x = grid_y = grid_mag = None
-    else:
-        data = np.load(map_path)
-        grid_x = np.asarray(data['grid_x'], dtype=float)
-        grid_y = np.asarray(data['grid_y'], dtype=float)
-        grid_mag = np.asarray(data['grid_magnitude'], dtype=float)
-
-    # Bilinear interpolation of magnetic intensity and its derivatives
-    def interp_mag(x, y):
-        """
-        Returns (hmag, dh_dx, dh_dy) at point (x, y) using bilinear interpolation
-        on the grid defined by grid_x, grid_y and grid_mag.
-        If the grid is not available, returns (0.0, 0.0, 0.0).
-        """
-        if grid_x is None or grid_y is None:
-            return 0.0, 0.0, 0.0
-        # Find index i such that grid_x[i] <= x <= grid_x[i+1]
-        i = np.searchsorted(grid_x, x) - 1
-        j = np.searchsorted(grid_y, y) - 1
-        i = max(0, min(i, len(grid_x) - 2))
-        j = max(0, min(j, len(grid_y) - 2))
-        x0, x1 = grid_x[i], grid_x[i+1]
-        y0, y1 = grid_y[j], grid_y[j+1]
-        f00 = grid_mag[j, i]
-        f01 = grid_mag[j + 1, i]
-        f10 = grid_mag[j, i + 1]
-        f11 = grid_mag[j + 1, i + 1]
-        # Normalised coordinates within the cell
-        t = (x - x0) / (x1 - x0 + 1e-12)
-        u = (y - y0) / (y1 - y0 + 1e-12)
-        # Bilinear interpolation
-        h = (1 - t) * (1 - u) * f00 + (1 - t) * u * f01 + t * (1 - u) * f10 + t * u * f11
-        # Partial derivatives
-        dh_dx = ((1 - u) * (f10 - f00) + u * (f11 - f01)) / (x1 - x0 + 1e-12)
-        dh_dy = ((1 - t) * (f01 - f00) + t * (f11 - f10)) / (y1 - y0 + 1e-12)
-        return h, dh_dx, dh_dy
-
-    # Hard constraint thresholds based on standard deviation
-    sigma_step = float(np.std(stplen)) + 1e-12
-    sigma_dtheta = float(np.std(heading_angle)) + 1e-12
-    sigma_mag = _STEP_CONFIG.get('mag_sigma', 8.0)
-    delta_step = delta_scale * sigma_step
-    delta_dtheta = delta_scale * sigma_dtheta
-
-    # Initialise auxiliary variables w and v and Adam buffers
-    w = np.zeros(n, dtype=float)
-    v = np.zeros(n, dtype=float)
-    m_w = np.zeros(n, dtype=float)
-    m_v = np.zeros(n, dtype=float)
-    v_w = np.zeros(n, dtype=float)
-    v_v = np.zeros(n, dtype=float)
-
-    for t in range(1, iterations + 1):
-        # Estimate step lengths and differential headings via arctan mapping
-        est_step = stplen + (2.0 / math.pi) * np.arctan(w) * delta_step
-        est_dtheta = heading_angle + (2.0 / math.pi) * np.arctan(v) * delta_dtheta
-
-        # Reconstruct positions and headings
-        x = np.zeros(n + 1, dtype=float)
-        y = np.zeros(n + 1, dtype=float)
-        theta = 0.0
-        x[0], y[0] = float(init_point[0]), float(init_point[1])
-        for i in range(n):
-            theta += est_dtheta[i]
-            x[i + 1] = x[i] + est_step[i] * math.cos(theta)
-            y[i + 1] = y[i] + est_step[i] * math.sin(theta)
-
-        # Compute gradients for each step
-        grad_w = np.zeros(n, dtype=float)
-        grad_v = np.zeros(n, dtype=float)
-        for k in range(n):
-            # Inertial residuals
-            res_step = est_step[k] - stplen[k]
-            res_dtheta = est_dtheta[k] - heading_angle[k]
-
-            # Partial derivatives of step and heading mappings
-            dstep_dw_k = (2.0 / math.pi) * delta_step / (1.0 + w[k] * w[k])
-            ddtheta_dv_k = (2.0 / math.pi) * delta_dtheta / (1.0 + v[k] * v[k])
-
-            # Positions and heading at step k
-            theta_k = sum(est_dtheta[:k + 1])
-            # Derivatives of x_k,y_k with respect to w_k and v_k (local approximation)
-            dx_dw_k = math.cos(theta_k) * dstep_dw_k
-            dy_dw_k = math.sin(theta_k) * dstep_dw_k
-            dx_dv_k = -est_step[k] * math.sin(theta_k) * ddtheta_dv_k
-            dy_dv_k = est_step[k] * math.cos(theta_k) * ddtheta_dv_k
-
-            # Magnetic residual and gradient
-            hmag_k, dh_dx_k, dh_dy_k = interp_mag(x[k + 1], y[k + 1])
-            res_mag = hmag_k - measured_mags[k] if k < measured_mags.size else 0.0
-            grad_w_mag = 2.0 / (sigma_mag ** 2) * res_mag * (dh_dx_k * dx_dw_k + dh_dy_k * dy_dw_k)
-            grad_v_mag = 2.0 / (sigma_mag ** 2) * res_mag * (dh_dx_k * dx_dv_k + dh_dy_k * dy_dv_k)
-
-            # Inertial gradient contributions
-            grad_w_inertial = 2.0 / (sigma_step ** 2) * res_step * dstep_dw_k
-            grad_v_inertial = 2.0 / (sigma_dtheta ** 2) * res_dtheta * ddtheta_dv_k
-
-            grad_w[k] = grad_w_inertial + grad_w_mag
-            grad_v[k] = grad_v_inertial + grad_v_mag
-
-        # Adam updates
-        m_w = beta1 * m_w + (1.0 - beta1) * grad_w
-        v_w = beta2 * v_w + (1.0 - beta2) * (grad_w * grad_w)
-        m_v = beta1 * m_v + (1.0 - beta1) * grad_v
-        v_v = beta2 * v_v + (1.0 - beta2) * (grad_v * grad_v)
-        m_w_hat = m_w / (1.0 - beta1 ** t)
-        v_w_hat = v_w / (1.0 - beta2 ** t)
-        m_v_hat = m_v / (1.0 - beta1 ** t)
-        v_v_hat = v_v / (1.0 - beta2 ** t)
-        w -= lr * m_w_hat / (np.sqrt(v_w_hat) + eps)
-        v -= lr * m_v_hat / (np.sqrt(v_v_hat) + eps)
-
-    # Final estimate of step, heading and positions
-    est_step = stplen + (2.0 / math.pi) * np.arctan(w) * delta_step
-    est_dtheta = heading_angle + (2.0 / math.pi) * np.arctan(v) * delta_dtheta
-    x = np.zeros(n + 1, dtype=float)
-    y = np.zeros(n + 1, dtype=float)
-    theta = 0.0
-    x[0], y[0] = float(init_point[0]), float(init_point[1])
-    for i in range(n):
-        theta += est_dtheta[i]
-        x[i + 1] = x[i] + est_step[i] * math.cos(theta)
-        y[i + 1] = y[i] + est_step[i] * math.sin(theta)
-
-    return [[float(xi), float(yi)] for xi, yi in zip(x, y)]
-
-
 # ============================================================
 # User Part (Public API)
 # ============================================================
@@ -1911,9 +1815,13 @@ def get_map(*args, **kwargs):
     return _api_get_map(*args, **kwargs)
 
 
+def get_map_mapping(*args, **kwargs):
+    return _api_get_map_mapping(*args, **kwargs)
+
+
 def initialize():
-    pass
-    # TODO
+    # Default initial XY anchor for trajectory optimization.
+    return [0.0, 0.0]
 
 def get_true_route(*args, **kwargs):
     return _api_get_true_route(*args, **kwargs)
@@ -1957,6 +1865,3 @@ def PF(*args, **kwargs):
 
 def visualize(*args, **kwargs):
     return _api_visualize(*args, **kwargs)
-
-def factor_graph(*args,**kwargs):
-    return _api_factor_graph(*args,**kwargs)

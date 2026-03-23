@@ -5,304 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdf13aed-e230-402e-92ca-a8dde12e2e49" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/GeomagLoc_FactorGraph.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/processed/uji_mag_grid_kriging.npz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/processed/uji_mag_grid_kriging.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/processed/uji_mag_grid_kriging_meta.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/processed/uji_mag_grid_preview_kriging.npz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/processed/uji_mag_model_kriging.npz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/.extracted_ok" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1n4r_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1n4r_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1n4r_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1n4r_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1n4r_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1n5r_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1n5r_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1n5r_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1n5r_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1n5r_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1n6r_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1n6r_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1n6r_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1n6r_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1n6r_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1n7r_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1n7r_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1n7r_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1n7r_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1n7r_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1n8r_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1n8r_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1n8r_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1n8r_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1n8r_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1r4r_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1r4r_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1r4r_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1r4r_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1r4r_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1r5r_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1r5r_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1r5r_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1r5r_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1r5r_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1r6r_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1r6r_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1r6r_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1r6r_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1r6r_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1r7r_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1r7r_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1r7r_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1r7r_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c1/c1r7r_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2n4n_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2n4n_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2n4n_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2n4n_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2n4n_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2n5n_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2n5n_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2n5n_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2n5n_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2n5n_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2n6n_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2n6n_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2n6n_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2n6n_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2n6n_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2n7n_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2n7n_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2n7n_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2n7n_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2n7n_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2n8n_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2n8n_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2n8n_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2n8n_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2n8n_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2r3n_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2r3n_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2r3n_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2r3n_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2r3n_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2r4n_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2r4n_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2r4n_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2r4n_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2r4n_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2r5n_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2r5n_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2r5n_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2r5n_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2r5n_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2r6n_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2r6n_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2r6n_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2r6n_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2r6n_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2r7n_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2r7n_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2r7n_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2r7n_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c2/c2r7n_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c3/c3r2n_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c3/c3r2n_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c3/c3r2n_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c3/c3r2n_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c3/c3r2n_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c4/c4n1n_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c4/c4n1n_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c4/c4n1n_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c4/c4n1n_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c4/c4n1n_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c4/c4n1r_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c4/c4n1r_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c4/c4n1r_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c4/c4n1r_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c4/c4n1r_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c4/c4r2n_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c4/c4r2n_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c4/c4r2n_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c4/c4r2n_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c4/c4r2n_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c4/c4r2r_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c4/c4r2r_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c4/c4r2r_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c4/c4r2r_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c4/c4r2r_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c5/c5n1n_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c5/c5n1n_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c5/c5n1n_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c5/c5n1n_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c5/c5n1n_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c5/c5n1r_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c5/c5n1r_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c5/c5n1r_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c5/c5n1r_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c5/c5n1r_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c5/c5r2n_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c5/c5r2n_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c5/c5r2n_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c5/c5r2n_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c5/c5r2n_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c5/c5r2r_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c5/c5r2r_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c5/c5r2r_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c5/c5r2r_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c5/c5r2r_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c6/c6n1n_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c6/c6n1n_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c6/c6n1n_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c6/c6n1n_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c6/c6n1n_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c6/c6n1r_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c6/c6n1r_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c6/c6n1r_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c6/c6n1r_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c6/c6n1r_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c6/c6r2n_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c6/c6r2n_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c6/c6r2n_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c6/c6r2n_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c6/c6r2n_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c6/c6r2r_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c6/c6r2r_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c6/c6r2r_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c6/c6r2r_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c6/c6r2r_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c7/c7n1n_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c7/c7n1n_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c7/c7n1n_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c7/c7n1n_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c7/c7n1n_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c7/c7n1r_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c7/c7n1r_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c7/c7n1r_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c7/c7n1r_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c7/c7n1r_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c7/c7r2n_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c7/c7r2n_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c7/c7r2n_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c7/c7r2n_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c7/c7r2n_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c7/c7r2r_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c7/c7r2r_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c7/c7r2r_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c7/c7r2r_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c7/c7r2r_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c8/c8n1r_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c8/c8n1r_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c8/c8n1r_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c8/c8n1r_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c8/c8n1r_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c8/c8r2r_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c8/c8r2r_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c8/c8r2r_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c8/c8r2r_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/curves/c8/c8r2r_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c1/l1n_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c1/l1n_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c1/l1n_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c1/l1n_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c1/l1n_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c1/l1r_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c1/l1r_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c1/l1r_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c1/l1r_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c1/l1r_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c2/l2n_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c2/l2n_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c2/l2n_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c2/l2n_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c2/l2n_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c2/l2r_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c2/l2r_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c2/l2r_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c2/l2r_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c2/l2r_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c3/l3n_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c3/l3n_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c3/l3n_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c3/l3n_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c3/l3n_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c3/l3r_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c3/l3r_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c3/l3r_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c3/l3r_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c3/l3r_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c4/l4n_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c4/l4n_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c4/l4n_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c4/l4n_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c4/l4n_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c4/l4r_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c4/l4r_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c4/l4r_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c4/l4r_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c4/l4r_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c5/l5n_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c5/l5n_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c5/l5n_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c5/l5n_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c5/l5n_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c5/l5r_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c5/l5r_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c5/l5r_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c5/l5r_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c5/l5r_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c6/l6n_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c6/l6n_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c6/l6n_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c6/l6n_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c6/l6n_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c6/l6r_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c6/l6r_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c6/l6r_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c6/l6r_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c6/l6r_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c7/l7n_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c7/l7n_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c7/l7n_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c7/l7n_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c7/l7n_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c7/l7r_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c7/l7r_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c7/l7r_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c7/l7r_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c7/l7r_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c8/l8n_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c8/l8n_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c8/l8n_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c8/l8n_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c8/l8n_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c8/l8r_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c8/l8r_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c8/l8r_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c8/l8r_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/lines/c8/l8r_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/tests/tt01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/tests/tt02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/tests/tt03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/tests/tt04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/tests/tt05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/tests/tt06.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/tests/tt07.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/tests/tt08.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/tests/tt09.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/tests/tt10.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/extracted/UJIIndoorLoc-Mag/UJIIndoorLoc-Mag/tests/tt11.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/uji_indoorloc_mag/ujiindoorloc+mag.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/geomagloc_factor_graph/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/geomagloc_factor_graph/factor_graph.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/geomagloc_factor_graph/pipeline.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/geomagloc_factor_graph/simulation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/processed/uji_mag_grid_kriging.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/uji_mag_grid_kriging.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/processed/uji_mag_grid_preview_kriging.npz" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/uji_mag_grid_preview_kriging.npz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/geomagloc_factor_graph/factor_graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/geomagloc_factor_graph/factor_graph.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/geomagloc_factor_graph/pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/geomagloc_factor_graph/pipeline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/geomagloc_factor_graph/simulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/geomagloc_factor_graph/simulation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -310,7 +19,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="298" />
+    <option name="cachedIndexableFilesCount" value="307" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -326,6 +35,9 @@
     <commands />
     <urls />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="AISelfReview" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -337,6 +49,9 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.factor_graph.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pipeline.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
@@ -381,22 +96,19 @@
       <workItem from="1773490969561" duration="652000" />
       <workItem from="1773539959242" duration="3935000" />
       <workItem from="1773579883508" duration="1655000" />
-      <workItem from="1774164767267" duration="12266000" />
+      <workItem from="1774164767267" duration="12566000" />
+      <workItem from="1774245556152" duration="4119000" />
+      <workItem from="1774255341635" duration="794000" />
+      <workItem from="1774261062350" duration="7182000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>8</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/GeomagLoc_FactorGraph$main.coverage" NAME="main Coverage Results" MODIFIED="1774249125304" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/GeomagLoc_FactorGraph$pipeline.coverage" NAME="pipeline Coverage Results" MODIFIED="1774247602815" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/geomagloc_factor_graph" />
+    <SUITE FILE_PATH="coverage/GeomagLoc_FactorGraph$factor_graph.coverage" NAME="factor_graph Coverage Results" MODIFIED="1774248520509" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/geomagloc_factor_graph" />
   </component>
 </project>
