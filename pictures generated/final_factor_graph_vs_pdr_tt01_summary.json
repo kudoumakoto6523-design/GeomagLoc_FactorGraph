@@ -1,0 +1,48 @@
+{
+  "mode": "factor_graph",
+  "iteration_per_step": 100,
+  "window_size": null,
+  "elapsed_sec": 127.32802429100047,
+  "steps_detected": 83,
+  "track_len_factor_graph": 84,
+  "track_len_pdr": 84,
+  "initial_xy": [
+    16.71162223815918,
+    7.10840368270874
+  ],
+  "map_bounds_xy": [
+    0.0,
+    17.0,
+    0.0,
+    15.0
+  ],
+  "factor_graph_boundary_violations": 0,
+  "factor_graph": {
+    "count": 84,
+    "rmse_abs": 3.55925225464763,
+    "mae_abs": 3.1595048358865676,
+    "median_abs": 3.675149413973691,
+    "p95_abs": 5.231032418332123,
+    "final_abs": 4.059801956975355,
+    "rmse_aligned": 3.5592525318088564,
+    "final_aligned": 4.059802861791623
+  },
+  "pdr": {
+    "count": 84,
+    "rmse_abs": 2.975784839068711,
+    "mae_abs": 2.7956140287416487,
+    "median_abs": 3.071888727435944,
+    "p95_abs": 3.9606897667405443,
+    "final_abs": 3.1147531887310356,
+    "rmse_aligned": 2.975784839068711,
+    "final_aligned": 3.1147531887310356
+  },
+  "rmse_abs_delta_pdr_minus_fg": -0.583467415578919,
+  "loss_curve_stats": {
+    "num_step_curves": 83,
+    "min_curve_length": 100,
+    "max_curve_length": 100
+  },
+  "trajectory_plot_png": "pictures generated/final_factor_graph_vs_pdr_tt01.png",
+  "loss_plot_png": "pictures generated/final_loss_all_steps_tt01.png"
+}

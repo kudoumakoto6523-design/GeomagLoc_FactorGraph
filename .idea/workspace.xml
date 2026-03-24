@@ -6,12 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="bdf13aed-e230-402e-92ca-a8dde12e2e49" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/uji_mag_grid_kriging.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/uji_mag_grid_kriging.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/uji_mag_grid_preview_kriging.npz" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/uji_mag_grid_preview_kriging.npz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/geomagloc_factor_graph/factor_graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/geomagloc_factor_graph/factor_graph.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/geomagloc_factor_graph/pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/geomagloc_factor_graph/pipeline.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/geomagloc_factor_graph/simulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/geomagloc_factor_graph/simulation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pictures generated/true_vs_predicted_tt01.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +17,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="307" />
+    <option name="cachedIndexableFilesCount" value="310" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -76,6 +74,37 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GeomagLoc_FactorGraph" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -100,6 +129,10 @@
       <workItem from="1774245556152" duration="4119000" />
       <workItem from="1774255341635" duration="794000" />
       <workItem from="1774261062350" duration="7182000" />
+      <workItem from="1774268293045" duration="540000" />
+      <workItem from="1774317332894" duration="1495000" />
+      <workItem from="1774319196772" duration="7065000" />
+      <workItem from="1774349160922" duration="1028000" />
     </task>
     <servers />
   </component>
@@ -107,7 +140,7 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/GeomagLoc_FactorGraph$main.coverage" NAME="main Coverage Results" MODIFIED="1774249125304" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/GeomagLoc_FactorGraph$main.coverage" NAME="main Coverage Results" MODIFIED="1774334338536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/GeomagLoc_FactorGraph$pipeline.coverage" NAME="pipeline Coverage Results" MODIFIED="1774247602815" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/geomagloc_factor_graph" />
     <SUITE FILE_PATH="coverage/GeomagLoc_FactorGraph$factor_graph.coverage" NAME="factor_graph Coverage Results" MODIFIED="1774248520509" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/geomagloc_factor_graph" />
   </component>

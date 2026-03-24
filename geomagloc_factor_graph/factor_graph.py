@@ -113,6 +113,12 @@ def build_mag_map_function(mag_map_array, x_range, y_range):
 
         return value
 
+    # Expose spatial bounds for explicit boundary penalties in optimization.
+    mag_map._x_min = x_min
+    mag_map._x_max = x_max
+    mag_map._y_min = y_min
+    mag_map._y_max = y_max
+
     return mag_map
 
 
@@ -156,6 +162,44 @@ def _api_factor_graph_contrain_lag(constrain_func, target, delta, multiplier, mu
     return lag_wrapper
 
 
+def _boundary_penalty(position, mag_map, weight=10.0):
+    if mag_map is None:
+        return torch.tensor(0.0, dtype=torch.float32)
+
+    x_min = getattr(mag_map, "_x_min", None)
+    x_max = getattr(mag_map, "_x_max", None)
+    y_min = getattr(mag_map, "_y_min", None)
+    y_max = getattr(mag_map, "_y_max", None)
+    if x_min is None or x_max is None or y_min is None or y_max is None:
+        return torch.tensor(0.0, dtype=torch.float32)
+
+    x = position[0]
+    y = position[1]
+    x_low = torch.clamp(float(x_min) - x, min=0.0)
+    x_high = torch.clamp(x - float(x_max), min=0.0)
+    y_low = torch.clamp(float(y_min) - y, min=0.0)
+    y_high = torch.clamp(y - float(y_max), min=0.0)
+    violation = x_low + x_high + y_low + y_high
+    return float(weight) * torch.square(violation)
+
+
+def _clip_position_to_bounds(position, mag_map):
+    if mag_map is None:
+        return position
+    x_min = getattr(mag_map, "_x_min", None)
+    x_max = getattr(mag_map, "_x_max", None)
+    y_min = getattr(mag_map, "_y_min", None)
+    y_max = getattr(mag_map, "_y_max", None)
+    if x_min is None or x_max is None or y_min is None or y_max is None:
+        return position
+    return torch.stack(
+        [
+            torch.clamp(position[0], float(x_min), float(x_max)),
+            torch.clamp(position[1], float(y_min), float(y_max)),
+        ]
+    )
+
+
 def default_Q1_window(start_point, steplen_list, heading_angle_list, mag_map, mag_sensor_list, param_w, param_v):
     """
     Windowed magnetic loss.
@@ -189,6 +233,13 @@ def default_Q1_window(start_point, steplen_list, heading_angle_list, mag_map, ma
     total magnetic loss over the whole window
     """
 
+    if mag_map is None:
+        raise ValueError(
+            "Factor-graph magnetic matching requires `mag_map`. "
+            "Without a magnetic map there is no position-dependent observation term. "
+            "Use pipeline(use_magnetic_map=False) for PDR-only ablation."
+        )
+
     current_pos = torch.tensor(start_point, dtype=torch.float32)
     total_loss = torch.tensor(0.0, dtype=torch.float32)
 
@@ -201,12 +252,16 @@ def default_Q1_window(start_point, steplen_list, heading_angle_list, mag_map, ma
             torch.cos(corrected_angle)
         ])
 
-        current_pos = current_pos + move_vec
+        proposed_pos = current_pos + move_vec
+        # Soft penalty for proposing out-of-bound positions + hard projection.
+        bound_loss = _boundary_penalty(proposed_pos, mag_map, weight=1e4)
+        current_pos = _clip_position_to_bounds(proposed_pos, mag_map)
 
         mag_pred = mag_map(current_pos)
         mag_true = torch.tensor(float(mag_sensor_list[i]), dtype=torch.float32)
 
         total_loss = total_loss + torch.abs(mag_pred - mag_true)
+        total_loss = total_loss + bound_loss
 
     return total_loss
 
@@ -262,7 +317,16 @@ def constrain(param_w, param_v):
 
 class Factor_Graph:
 
-    def __init__(self, param_this_iteration: param, constrain = constrain,target_func=target_func, optimizer="Adam"):
+    def __init__(
+        self,
+        param_this_iteration: param,
+        constrain=constrain,
+        target_func=target_func,
+        optimizer="Adam",
+        verbose=False,
+        show_progress=False,
+        live_plot=False,
+    ):
         """
         constrain: this must be a function
         target_func: this must be a function generator
@@ -271,8 +335,20 @@ class Factor_Graph:
         self.param_this_iteration = param_this_iteration
         self.target_func_builder = target_func
         self.optimizer = optimizer
+        self.verbose = bool(verbose)
+        self.show_progress = bool(show_progress)
+        self.live_plot = bool(live_plot)
+        self.last_loss_history = []
 
-    def optimization(self, learning_rate, iteration, constrain_method="penalty"):
+    def optimization(
+        self,
+        learning_rate,
+        iteration,
+        constrain_method="penalty",
+        verbose=None,
+        show_progress=None,
+        live_plot=None,
+    ):
         """
         penalty method: "penalty"
         Log-Barrier Method: "log"
@@ -317,8 +393,13 @@ class Factor_Graph:
 
         optimizer = torch.optim.Adam([param_w, param_v], lr=learning_rate)
 
-        plotlosses = PlotLosses()
-        pbar = trange(iteration, desc="Optimizing")
+        verbose = self.verbose if verbose is None else bool(verbose)
+        show_progress = self.show_progress if show_progress is None else bool(show_progress)
+        live_plot = self.live_plot if live_plot is None else bool(live_plot)
+
+        plotlosses = PlotLosses() if live_plot else None
+        pbar = trange(iteration, desc="Optimizing") if show_progress else range(iteration)
+        loss_history = []
 
         for step in pbar:
             optimizer.zero_grad()
@@ -329,15 +410,22 @@ class Factor_Graph:
 
             loss.backward()
             optimizer.step()
+            loss_value = float(loss.item())
+            loss_history.append(loss_value)
 
-            print(f"loss: {loss.item()}")
-            plotlosses.update({'loss': loss.item()})
-            plotlosses.send()
+            if verbose:
+                print(f"step {step + 1}/{iteration}, loss: {loss_value}")
+            if plotlosses is not None:
+                plotlosses.update({'loss': loss_value})
+                plotlosses.send()
 
-        print(f"optimizer {self.optimizer} finished its iteration")
-        print(f"optimized parameters:")
-        print(f"param_w: {param_w.detach().numpy()}")
-        print(f"param_v: {param_v.detach().numpy()}")
+        self.last_loss_history = loss_history
+
+        if verbose:
+            print(f"optimizer {self.optimizer} finished its iteration")
+            print("optimized parameters:")
+            print(f"param_w: {param_w.detach().numpy()}")
+            print(f"param_v: {param_v.detach().numpy()}")
 
         start_pos = torch.tensor(self.param_this_iteration.starting_point, dtype=torch.float32)
         current_pos = start_pos.clone()
@@ -352,21 +440,34 @@ class Factor_Graph:
                 torch.cos(corrected_angle)
             ])
 
-            current_pos = current_pos + move_vec
+            proposed_pos = current_pos + move_vec
+            current_pos = _clip_position_to_bounds(proposed_pos, self.param_this_iteration.mag_map)
             pos_list.append(current_pos.detach().numpy())
 
-        print("Optimized positions in this window:")
-        for p in pos_list:
-            print(p)
+        if verbose:
+            print("Optimized positions in this window:")
+            for p in pos_list:
+                print(p)
 
         return pos_list
 
-    def run(self, learning_rate=0.01, iteration=100, constrain_method="penalty"):
+    def run(
+        self,
+        learning_rate=0.01,
+        iteration=100,
+        constrain_method="penalty",
+        verbose=None,
+        show_progress=None,
+        live_plot=None,
+    ):
         """
         Call this from the class item.
         """
         return self.optimization(
             learning_rate=learning_rate,
             iteration=iteration,
-            constrain_method=constrain_method
+            constrain_method=constrain_method,
+            verbose=verbose,
+            show_progress=show_progress,
+            live_plot=live_plot,
         )

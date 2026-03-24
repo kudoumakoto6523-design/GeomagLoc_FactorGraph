@@ -1081,8 +1081,10 @@ def _heading_from_acc_mag(acc, mag):
 
 def _azimuth_deg_to_xy_heading_rad(az_deg):
     # Smartphone/compass azimuth: 0 deg = North, clockwise positive.
-    # XY heading used by motion model: 0 rad = +X(East), CCW positive.
-    return _wrap_angle_pi(math.radians(90.0 - float(az_deg)))
+    # Motion model convention in this project:
+    #   x += step * sin(theta), y += step * cos(theta)
+    # So theta should be the same azimuth angle (in radians).
+    return _wrap_angle_pi(math.radians(float(az_deg)))
 
 
 def _api_get_heading_angle(samples, method="gyro", dt=0.02, alpha=None):
@@ -1193,92 +1195,6 @@ def _api_get_mag(method="norm_mean"):
         m = np.asarray(frame["mag"][:3], dtype=float)
         return float(np.linalg.norm(m))
     return 0.0
-
-
-# TODO: Run one particle-filter update step and return updated position.
-def _derivative_sequence(x):
-    x = np.asarray(x, dtype=float).reshape(-1)
-    if x.size <= 1:
-        return x.copy()
-    if x.size == 2:
-        return np.asarray([x[1] - x[0]], dtype=float)
-    d = np.empty_like(x, dtype=float)
-    d[0] = float(x[1] - x[0])
-    d[-1] = float(x[-1] - x[-2])
-    d[1:-1] = 0.5 * (x[2:] - x[:-2])
-    return d
-
-
-def _zscore(x):
-    x = np.asarray(x, dtype=float).reshape(-1)
-    if x.size == 0:
-        return x
-    mu = float(np.mean(x))
-    sd = float(np.std(x))
-    if sd < 1e-8:
-        return x - mu
-    return (x - mu) / sd
-
-
-def _ddtw_distance(a, b, window_ratio=0.25):
-    a = _zscore(_derivative_sequence(a))
-    b = _zscore(_derivative_sequence(b))
-    if a.size == 0 or b.size == 0:
-        return 0.0
-
-    n, m = int(a.size), int(b.size)
-    window = max(abs(n - m), int(max(n, m) * float(window_ratio)), 4)
-    dp = np.full((n + 1, m + 1), np.inf, dtype=float)
-    dp[0, 0] = 0.0
-    for i in range(1, n + 1):
-        j0 = max(1, i - window)
-        j1 = min(m, i + window)
-        ai = float(a[i - 1])
-        for j in range(j0, j1 + 1):
-            cost = abs(ai - float(b[j - 1]))
-            dp[i, j] = cost + min(dp[i - 1, j], dp[i, j - 1], dp[i - 1, j - 1])
-    return float(dp[n, m] / max(1, n + m))
-
-
-def _api_PF(step_len, heading_angle, geomag_list, pf_state):
-    if pf_state is None or not hasattr(pf_state, "particles"):
-        raise ValueError("PF requires a valid pf_state with particle storage.")
-
-    step_len = float(step_len)
-    heading_angle = float(heading_angle)
-    obs = np.asarray(list(geomag_list), dtype=float).reshape(-1)
-    sigma = float(getattr(pf_state, "weight_sigma", 3.0))
-    rng = getattr(pf_state, "rng", np.random.default_rng(42))
-    if getattr(pf_state, "map_points", None) is None:
-        # No map available: return dead-reckoning-like estimate.
-        return pf_state.get_pos()
-
-    for p in pf_state.particles:
-        theta = _wrap_angle_pi(heading_angle + float(rng.normal(0.0, 0.12)))
-        dist = max(0.0, step_len + float(rng.normal(0.0, 0.22)))
-        p.theta = theta
-        nx = float(p.x + dist * math.cos(theta))
-        ny = float(p.y + dist * math.sin(theta))
-        p.x, p.y = pf_state.clamp_to_map(nx, ny)
-
-        pred_mag = float(pf_state.map_magnitude(p.x, p.y))
-        p.mag_hist.append(pred_mag)
-        hist_len = int(max(1, min(len(obs), 100)))
-        pred_seq = np.asarray(p.mag_hist[-hist_len:], dtype=float)
-        obs_seq = obs[-hist_len:] if obs.size else np.asarray([pred_mag], dtype=float)
-        d = _ddtw_distance(obs_seq, pred_seq)
-        w_ddtw = math.exp(-((d * d) / (2.0 * sigma * sigma + 1e-12)))
-        p.weight = float(max(1e-12, w_ddtw))
-
-    pf_state._normalize_weights()
-
-    # KLD adaptive particle count.
-    target_n = pf_state.adapt_particle_count_kld()
-    ess = pf_state.effective_sample_size()
-    if ess < 0.5 * len(pf_state.particles) or target_n != len(pf_state.particles):
-        pf_state.cso_resample(target_count=target_n)
-
-    return pf_state.get_pos()
 
 
 def _parse_meta_groups(meta, defaults):
@@ -1498,7 +1414,6 @@ def _api_visualize(
     sensor_data=None,
     error_series=None,
     pdr_error_series=None,
-    particle_counts=None,
     show=True,
     output_png=None,
 ):
@@ -1524,8 +1439,6 @@ def _api_visualize(
                 defaults.append("pdr")
             if pos_list is not None and route is not None:
                 defaults.append("error")
-            if particle_counts is not None:
-                defaults.append("particles")
             items = defaults
         else:
             items = [str(x).strip().lower().rstrip("_") for x in meta if str(x).strip()]
@@ -1535,11 +1448,10 @@ def _api_visualize(
         has_predicted = ("predicted" in group_set) or ("estimate" in group_set)
         has_pdr = "pdr" in group_set
         has_error_plot = "error" in group_set
-        has_particles_plot = "particles" in group_set
         sensor_selectors = _sensor_selector_set(items)
         has_sensor_plot = len(sensor_selectors) > 0
 
-        if not (has_map or has_true_route or has_predicted or has_pdr or has_sensor_plot or has_error_plot or has_particles_plot):
+        if not (has_map or has_true_route or has_predicted or has_pdr or has_sensor_plot or has_error_plot):
             raise ValueError(f"Unsupported ujimap meta options: {items}")
 
         panel_order = []
@@ -1549,8 +1461,6 @@ def _api_visualize(
             panel_order.append("sensor")
         if has_error_plot:
             panel_order.append("error")
-        if has_particles_plot:
-            panel_order.append("particles")
         ncols = max(1, len(panel_order))
         fig, axes = plt.subplots(1, ncols, figsize=(6 * ncols, 5), dpi=120)
         if ncols == 1:
@@ -1559,7 +1469,6 @@ def _api_visualize(
         ax_map = panel_axes.get("map")
         ax_sensor = panel_axes.get("sensor")
         ax_error = panel_axes.get("error")
-        ax_particles = panel_axes.get("particles")
 
         model = None
         origin_lat = None
@@ -1665,15 +1574,15 @@ def _api_visualize(
                 ref_y2 = ry2[route_idx2]
                 return np.sqrt((tx - ref_x2) ** 2 + (ty - ref_y2) ** 2)
 
-            pf_err = None
+            fg_err = None
             pdr_err = None
 
             if error_series is not None:
-                pf_err = np.asarray(error_series, dtype=float).reshape(-1)
-                if pf_err.size == 0:
+                fg_err = np.asarray(error_series, dtype=float).reshape(-1)
+                if fg_err.size == 0:
                     raise ValueError("`error_series` must be non-empty when provided.")
             elif pos_list is not None and route is not None:
-                pf_err = _compute_track_error(pos_list)
+                fg_err = _compute_track_error(pos_list)
 
             if pdr_error_series is not None:
                 pdr_err = np.asarray(pdr_error_series, dtype=float).reshape(-1)
@@ -1682,21 +1591,21 @@ def _api_visualize(
             elif pdr_list is not None and route is not None:
                 pdr_err = _compute_track_error(pdr_list)
 
-            if (pf_err is None or pf_err.size == 0) and (pdr_err is None or pdr_err.size == 0):
+            if (fg_err is None or fg_err.size == 0) and (pdr_err is None or pdr_err.size == 0):
                 raise ValueError(
                     "Need (`pos_list` and `route`) and/or (`pdr_list` and `route`) to compute error plot, "
                     "or provide `error_series` / `pdr_error_series`."
                 )
 
-            if pf_err is not None and pf_err.size > 0:
+            if fg_err is not None and fg_err.size > 0:
                 ax_error.plot(
-                    np.arange(pf_err.size),
-                    pf_err,
+                    np.arange(fg_err.size),
+                    fg_err,
                     color="crimson",
                     linewidth=1.8,
-                    marker="o" if pf_err.size < 2 else None,
+                    marker="o" if fg_err.size < 2 else None,
                     markersize=4,
-                    label="PF Error",
+                    label="Factor Graph Error",
                 )
             if pdr_err is not None and pdr_err.size > 0:
                 ax_error.plot(
@@ -1714,20 +1623,8 @@ def _api_visualize(
             ax_error.set_xlabel("Iteration")
             ax_error.set_ylabel("Distance")
             ax_error.grid(True, alpha=0.3)
-            if (pf_err is not None and pf_err.size > 0) or (pdr_err is not None and pdr_err.size > 0):
+            if (fg_err is not None and fg_err.size > 0) or (pdr_err is not None and pdr_err.size > 0):
                 ax_error.legend(loc="best")
-
-        if has_particles_plot and ax_particles is not None:
-            if particle_counts is None:
-                raise ValueError("`particle_counts` is required when meta includes 'particles'.")
-            counts = np.asarray(particle_counts, dtype=float).reshape(-1)
-            if counts.size == 0:
-                raise ValueError("`particle_counts` must be non-empty.")
-            ax_particles.plot(np.arange(counts.size), counts, color="teal", linewidth=1.8)
-            ax_particles.set_title("Particle Count")
-            ax_particles.set_xlabel("Iteration")
-            ax_particles.set_ylabel("Num Particles")
-            ax_particles.grid(True, alpha=0.3)
 
         fig.tight_layout()
         saved_path = _save_figure(fig, output_png, 0, False)
@@ -1857,10 +1754,6 @@ def get_heading_angle(*args, **kwargs):
 
 def get_mag(*args, **kwargs):
     return _api_get_mag(*args, **kwargs)
-
-
-def PF(*args, **kwargs):
-    return _api_PF(*args, **kwargs)
 
 
 def visualize(*args, **kwargs):
